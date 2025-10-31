@@ -252,7 +252,11 @@ export default function Index() {
                 </div>
               </div>
               <div className="relative animate-scale-in">
-                <div className="text-[300px] leading-none text-center">🐕</div>
+                <img 
+                  src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=600&h=600&fit=crop" 
+                  alt="Рыжий шпиц"
+                  className="w-full h-auto rounded-3xl shadow-2xl object-cover"
+                />
               </div>
             </div>
           </div>
