@@ -138,6 +138,9 @@ export default function Index() {
             <button onClick={() => scrollToSection('delivery')} className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === 'delivery' ? 'text-primary' : 'text-foreground'}`}>
               Доставка
             </button>
+            <button onClick={() => scrollToSection('gallery')} className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === 'gallery' ? 'text-primary' : 'text-foreground'}`}>
+              Фото
+            </button>
             <button onClick={() => scrollToSection('contacts')} className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === 'contacts' ? 'text-primary' : 'text-foreground'}`}>
               Контакты
             </button>
@@ -398,6 +401,73 @@ export default function Index() {
                   </div>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        <section id="gallery" className="py-20 bg-muted/30">
+          <div className="container">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4">Наши счастливые клиенты</h2>
+              <p className="text-xl text-muted-foreground">Шпицы обожают наши лакомства!</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400&h=400&fit=crop" 
+                  alt="Рыжий шпиц"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=400&h=400&fit=crop" 
+                  alt="Счастливый шпиц"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=400&h=400&fit=crop" 
+                  alt="Шпиц ждет лакомство"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=400&fit=crop" 
+                  alt="Милый шпиц"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=400&h=400&fit=crop" 
+                  alt="Радостный шпиц"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=400&fit=crop" 
+                  alt="Пушистый шпиц"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?w=400&h=400&fit=crop" 
+                  alt="Игривый шпиц"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl aspect-square group">
+                <img 
+                  src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop" 
+                  alt="Очаровательный шпиц"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
             </div>
           </div>
         </section>
