@@ -22,14 +22,14 @@ interface CartItem extends Product {
 }
 
 const galleryImages = [
-  'https://picsum.photos/seed/pom1/600/600',
-  'https://picsum.photos/seed/pom2/600/600',
-  'https://picsum.photos/seed/pom3/600/600',
-  'https://picsum.photos/seed/pom4/600/600',
-  'https://picsum.photos/seed/pom5/600/600',
-  'https://picsum.photos/seed/pom6/600/600',
-  'https://picsum.photos/seed/pom7/600/600',
-  'https://picsum.photos/seed/pom8/600/600'
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg'
 ];
 
 const products: Product[] = [
@@ -320,9 +320,11 @@ export default function Index() {
                 </div>
               </div>
               <div className="relative animate-scale-in">
-                <div className="w-full aspect-square rounded-3xl shadow-2xl bg-gradient-to-br from-orange-200 via-orange-300 to-amber-200 flex items-center justify-center">
-                  <div className="text-[180px] leading-none">🐕</div>
-                </div>
+                <img 
+                  src="https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg" 
+                  alt="Рыжий шпиц"
+                  className="w-full h-auto rounded-3xl shadow-2xl object-cover"
+                />
               </div>
             </div>
           </div>
@@ -361,9 +363,11 @@ export default function Index() {
         <section id="about" className="py-20">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="w-full aspect-square rounded-3xl shadow-xl bg-gradient-to-br from-pink-200 via-rose-200 to-red-200 flex items-center justify-center">
-                <div className="text-[120px] leading-none">❤️</div>
-              </div>
+              <img 
+                src="https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg" 
+                alt="Счастливый шпиц"
+                className="w-full h-auto rounded-3xl shadow-xl object-cover"
+              />
               <div className="space-y-6">
                 <h2 className="text-4xl font-bold">О нас</h2>
                 <p className="text-lg text-muted-foreground">
@@ -444,9 +448,11 @@ export default function Index() {
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <Card className="overflow-hidden">
                 <CardHeader>
-                  <div className="w-full h-32 bg-gradient-to-br from-blue-200 to-cyan-200 flex items-center justify-center mb-4 rounded-lg">
-                    <div className="text-6xl">🚚</div>
-                  </div>
+                  <img 
+                    src="https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg" 
+                    alt="Шпиц ждет доставку"
+                    className="w-full h-32 object-cover mb-4 rounded-lg"
+                  />
                   <CardTitle className="text-center">СДЭК</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -458,9 +464,11 @@ export default function Index() {
               </Card>
               <Card className="overflow-hidden">
                 <CardHeader>
-                  <div className="w-full h-32 bg-gradient-to-br from-purple-200 to-pink-200 flex items-center justify-center mb-4 rounded-lg">
-                    <div className="text-6xl">📦</div>
-                  </div>
+                  <img 
+                    src="https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg" 
+                    alt="Милый шпиц"
+                    className="w-full h-32 object-cover mb-4 rounded-lg"
+                  />
                   <CardTitle className="text-center">Почта России</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -472,9 +480,11 @@ export default function Index() {
               </Card>
               <Card className="overflow-hidden">
                 <CardHeader>
-                  <div className="w-full h-32 bg-gradient-to-br from-green-200 to-emerald-200 flex items-center justify-center mb-4 rounded-lg">
-                    <div className="text-6xl">🏪</div>
-                  </div>
+                  <img 
+                    src="https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg" 
+                    alt="Радостный шпиц"
+                    className="w-full h-32 object-cover mb-4 rounded-lg"
+                  />
                   <CardTitle className="text-center">Самовывоз</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -495,28 +505,19 @@ export default function Index() {
               <p className="text-xl text-muted-foreground">Шпицы обожают наши лакомства!</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galleryImages.map((img, index) => {
-                const gradients = [
-                  'from-orange-300 to-amber-300',
-                  'from-pink-300 to-rose-300',
-                  'from-blue-300 to-cyan-300',
-                  'from-purple-300 to-pink-300',
-                  'from-green-300 to-emerald-300',
-                  'from-yellow-300 to-orange-300',
-                  'from-red-300 to-pink-300',
-                  'from-indigo-300 to-purple-300'
-                ];
-                const emojis = ['🐕', '🐶', '🦴', '❤️', '⭐', '🎾', '🏆', '🎉'];
-                return (
-                  <div 
-                    key={index}
-                    className={`relative overflow-hidden rounded-2xl aspect-square group cursor-pointer bg-gradient-to-br ${gradients[index]} flex items-center justify-center transition-transform duration-300 hover:scale-105`}
-                    onClick={() => openImage(index)}
-                  >
-                    <div className="text-8xl">{emojis[index]}</div>
-                  </div>
-                );
-              })}
+              {galleryImages.map((img, index) => (
+                <div 
+                  key={index}
+                  className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
+                  onClick={() => openImage(index)}
+                >
+                  <img 
+                    src={img} 
+                    alt={`Шпиц ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -648,11 +649,12 @@ export default function Index() {
             {selectedImageIndex + 1} / {galleryImages.length}
           </div>
           
-          <div className="max-w-2xl max-h-[80vh] aspect-square bg-gradient-to-br from-orange-300 via-pink-300 to-purple-300 rounded-lg flex items-center justify-center">
-            <div className="text-[200px] leading-none">
-              {['🐕', '🐶', '🦴', '❤️', '⭐', '🎾', '🏆', '🎉'][selectedImageIndex]}
-            </div>
-          </div>
+          <img 
+            src={galleryImages[selectedImageIndex]} 
+            alt="Полноэкранное фото"
+            className="max-w-full max-h-[80vh] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       )}
     </div>
