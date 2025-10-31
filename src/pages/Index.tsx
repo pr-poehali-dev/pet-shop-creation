@@ -20,6 +20,17 @@ interface CartItem extends Product {
   quantity: number;
 }
 
+const galleryImages = [
+  'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=1200&h=1200&fit=crop',
+  'https://images.unsplash.com/photo-1534361960057-19889db9621e?w=1200&h=1200&fit=crop',
+  'https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=1200&h=1200&fit=crop',
+  'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1200&h=1200&fit=crop',
+  'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=1200&h=1200&fit=crop',
+  'https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=1200&h=1200&fit=crop',
+  'https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?w=1200&h=1200&fit=crop',
+  'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&h=1200&fit=crop'
+];
+
 const products: Product[] = [
   {
     id: 1,
@@ -74,7 +85,27 @@ const products: Product[] = [
 export default function Index() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [activeSection, setActiveSection] = useState<string>('home');
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const openImage = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const closeImage = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const nextImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % galleryImages.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex - 1 + galleryImages.length) % galleryImages.length);
+    }
+  };
 
   const addToCart = (product: Product) => {
     setCart(prevCart => {
@@ -413,86 +444,19 @@ export default function Index() {
               <p className="text-xl text-muted-foreground">Шпицы обожают наши лакомства!</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400&h=400&fit=crop" 
-                  alt="Рыжий шпиц"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1534361960057-19889db9621e?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=400&h=400&fit=crop" 
-                  alt="Счастливый шпиц"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=400&h=400&fit=crop" 
-                  alt="Шпиц ждет лакомство"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=400&fit=crop" 
-                  alt="Милый шпиц"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=400&h=400&fit=crop" 
-                  alt="Радостный шпиц"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=400&fit=crop" 
-                  alt="Пушистый шпиц"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?w=400&h=400&fit=crop" 
-                  alt="Игривый шпиц"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div 
-                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                onClick={() => setSelectedImage('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&h=1200&fit=crop')}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop" 
-                  alt="Очаровательный шпиц"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
+              {galleryImages.map((img, index) => (
+                <div 
+                  key={index}
+                  className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
+                  onClick={() => openImage(index)}
+                >
+                  <img 
+                    src={img.replace('w=1200&h=1200', 'w=400&h=400')} 
+                    alt={`Шпиц ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -582,21 +546,50 @@ export default function Index() {
         </div>
       </footer>
 
-      {selectedImage && (
+      {selectedImageIndex !== null && (
         <div 
           className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedImage(null)}
+          onClick={closeImage}
         >
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-4 right-4 text-white hover:bg-white/20"
-            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 text-white hover:bg-white/20 z-10"
+            onClick={closeImage}
           >
             <Icon name="X" size={24} />
           </Button>
+          
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 z-10 h-12 w-12"
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+          >
+            <Icon name="ChevronLeft" size={32} />
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 z-10 h-12 w-12"
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+          >
+            <Icon name="ChevronRight" size={32} />
+          </Button>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
+            {selectedImageIndex + 1} / {galleryImages.length}
+          </div>
+          
           <img 
-            src={selectedImage} 
+            src={galleryImages[selectedImageIndex]} 
             alt="Полноэкранное фото"
             className="max-w-full max-h-full object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
