@@ -22,14 +22,14 @@ interface CartItem extends Product {
 }
 
 const galleryImages = [
-  'https://images.unsplash.com/photo-1585664811087-47f65abbad64',
-  'https://images.unsplash.com/photo-1534361960057-19889db9621e',
-  'https://images.unsplash.com/photo-1623387641168-d9803ddd3f35',
-  'https://images.unsplash.com/photo-1583337130417-3346a1be7dee',
-  'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993',
-  'https://images.unsplash.com/photo-1605568427561-40dd23c2acea',
-  'https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a',
-  'https://images.unsplash.com/photo-1548199973-03cce0bbc87b'
+  'https://picsum.photos/seed/pom1/600/600',
+  'https://picsum.photos/seed/pom2/600/600',
+  'https://picsum.photos/seed/pom3/600/600',
+  'https://picsum.photos/seed/pom4/600/600',
+  'https://picsum.photos/seed/pom5/600/600',
+  'https://picsum.photos/seed/pom6/600/600',
+  'https://picsum.photos/seed/pom7/600/600',
+  'https://picsum.photos/seed/pom8/600/600'
 ];
 
 const products: Product[] = [
@@ -320,11 +320,9 @@ export default function Index() {
                 </div>
               </div>
               <div className="relative animate-scale-in">
-                <img 
-                  src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?auto=format&fit=crop&w=600&q=80" 
-                  alt="Рыжий шпиц"
-                  className="w-full h-auto rounded-3xl shadow-2xl object-cover"
-                />
+                <div className="w-full aspect-square rounded-3xl shadow-2xl bg-gradient-to-br from-orange-200 via-orange-300 to-amber-200 flex items-center justify-center">
+                  <div className="text-[180px] leading-none">🐕</div>
+                </div>
               </div>
             </div>
           </div>
@@ -363,11 +361,9 @@ export default function Index() {
         <section id="about" className="py-20">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <img 
-                src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=500&q=80" 
-                alt="Счастливый шпиц"
-                className="w-full h-auto rounded-3xl shadow-xl object-cover"
-              />
+              <div className="w-full aspect-square rounded-3xl shadow-xl bg-gradient-to-br from-pink-200 via-rose-200 to-red-200 flex items-center justify-center">
+                <div className="text-[120px] leading-none">❤️</div>
+              </div>
               <div className="space-y-6">
                 <h2 className="text-4xl font-bold">О нас</h2>
                 <p className="text-lg text-muted-foreground">
@@ -448,11 +444,9 @@ export default function Index() {
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <Card className="overflow-hidden">
                 <CardHeader>
-                  <img 
-                    src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?auto=format&fit=crop&w=400&h=250&q=80" 
-                    alt="Шпиц ждет доставку"
-                    className="w-full h-32 object-cover mb-4 rounded-lg"
-                  />
+                  <div className="w-full h-32 bg-gradient-to-br from-blue-200 to-cyan-200 flex items-center justify-center mb-4 rounded-lg">
+                    <div className="text-6xl">🚚</div>
+                  </div>
                   <CardTitle className="text-center">СДЭК</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -464,11 +458,9 @@ export default function Index() {
               </Card>
               <Card className="overflow-hidden">
                 <CardHeader>
-                  <img 
-                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=400&h=250&q=80" 
-                    alt="Милый шпиц"
-                    className="w-full h-32 object-cover mb-4 rounded-lg"
-                  />
+                  <div className="w-full h-32 bg-gradient-to-br from-purple-200 to-pink-200 flex items-center justify-center mb-4 rounded-lg">
+                    <div className="text-6xl">📦</div>
+                  </div>
                   <CardTitle className="text-center">Почта России</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -480,11 +472,9 @@ export default function Index() {
               </Card>
               <Card className="overflow-hidden">
                 <CardHeader>
-                  <img 
-                    src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&w=400&h=250&q=80" 
-                    alt="Радостный шпиц"
-                    className="w-full h-32 object-cover mb-4 rounded-lg"
-                  />
+                  <div className="w-full h-32 bg-gradient-to-br from-green-200 to-emerald-200 flex items-center justify-center mb-4 rounded-lg">
+                    <div className="text-6xl">🏪</div>
+                  </div>
                   <CardTitle className="text-center">Самовывоз</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -505,19 +495,28 @@ export default function Index() {
               <p className="text-xl text-muted-foreground">Шпицы обожают наши лакомства!</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galleryImages.map((img, index) => (
-                <div 
-                  key={index}
-                  className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
-                  onClick={() => openImage(index)}
-                >
-                  <img 
-                    src={`${img}?auto=format&fit=crop&w=400&h=400&q=80`} 
-                    alt={`Шпиц ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-              ))}
+              {galleryImages.map((img, index) => {
+                const gradients = [
+                  'from-orange-300 to-amber-300',
+                  'from-pink-300 to-rose-300',
+                  'from-blue-300 to-cyan-300',
+                  'from-purple-300 to-pink-300',
+                  'from-green-300 to-emerald-300',
+                  'from-yellow-300 to-orange-300',
+                  'from-red-300 to-pink-300',
+                  'from-indigo-300 to-purple-300'
+                ];
+                const emojis = ['🐕', '🐶', '🦴', '❤️', '⭐', '🎾', '🏆', '🎉'];
+                return (
+                  <div 
+                    key={index}
+                    className={`relative overflow-hidden rounded-2xl aspect-square group cursor-pointer bg-gradient-to-br ${gradients[index]} flex items-center justify-center transition-transform duration-300 hover:scale-105`}
+                    onClick={() => openImage(index)}
+                  >
+                    <div className="text-8xl">{emojis[index]}</div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -649,12 +648,11 @@ export default function Index() {
             {selectedImageIndex + 1} / {galleryImages.length}
           </div>
           
-          <img 
-            src={`${galleryImages[selectedImageIndex]}?auto=format&fit=crop&w=1200&q=80`} 
-            alt="Полноэкранное фото"
-            className="max-w-full max-h-full object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="max-w-2xl max-h-[80vh] aspect-square bg-gradient-to-br from-orange-300 via-pink-300 to-purple-300 rounded-lg flex items-center justify-center">
+            <div className="text-[200px] leading-none">
+              {['🐕', '🐶', '🦴', '❤️', '⭐', '🎾', '🏆', '🎉'][selectedImageIndex]}
+            </div>
+          </div>
         </div>
       )}
     </div>
