@@ -295,7 +295,11 @@ export default function Index() {
         <section id="about" className="py-20">
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="text-[200px] leading-none text-center">❤️</div>
+              <img 
+                src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=500&h=500&fit=crop" 
+                alt="Счастливый шпиц"
+                className="w-full h-auto rounded-3xl shadow-xl object-cover"
+              />
               <div className="space-y-6">
                 <h2 className="text-4xl font-bold">О нас</h2>
                 <p className="text-lg text-muted-foreground">
@@ -346,9 +350,13 @@ export default function Index() {
               <p className="text-xl text-muted-foreground">Быстро и удобно до вашей двери</p>
             </div>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Card>
+              <Card className="overflow-hidden">
                 <CardHeader>
-                  <div className="text-5xl mb-4 text-center">🚚</div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=400&h=250&fit=crop" 
+                    alt="Шпиц ждет доставку"
+                    className="w-full h-32 object-cover mb-4 rounded-lg"
+                  />
                   <CardTitle className="text-center">Курьером</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -358,9 +366,13 @@ export default function Index() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="overflow-hidden">
                 <CardHeader>
-                  <div className="text-5xl mb-4 text-center">📦</div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=250&fit=crop" 
+                    alt="Милый шпиц"
+                    className="w-full h-32 object-cover mb-4 rounded-lg"
+                  />
                   <CardTitle className="text-center">Почта России</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -370,9 +382,13 @@ export default function Index() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="overflow-hidden">
                 <CardHeader>
-                  <div className="text-5xl mb-4 text-center">🏪</div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=400&h=250&fit=crop" 
+                    alt="Радостный шпиц"
+                    className="w-full h-32 object-cover mb-4 rounded-lg"
+                  />
                   <CardTitle className="text-center">Самовывоз</CardTitle>
                 </CardHeader>
                 <CardContent>
