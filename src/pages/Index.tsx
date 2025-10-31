@@ -22,14 +22,38 @@ interface CartItem extends Product {
 }
 
 const galleryImages = [
-  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
-  'https://cdn.poehali.dev/files/053539d8-74a9-4768-a6f3-5358f5af50f2.jpg',
-  'https://cdn.poehali.dev/files/c3e30131-142a-4c37-a6b3-b2931e8da121.jpg',
-  'https://cdn.poehali.dev/files/8ba0a572-9fac-4a53-879d-cdd6ff5e0cb9.jpg',
-  'https://cdn.poehali.dev/files/6442bbd8-4a0a-4616-889a-81d7674a2a71.jpg',
-  'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
-  'https://cdn.poehali.dev/files/053539d8-74a9-4768-a6f3-5358f5af50f2.jpg',
-  'https://cdn.poehali.dev/files/c3e30131-142a-4c37-a6b3-b2931e8da121.jpg'
+  {
+    url: 'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+    caption: 'Уютное лакомство 😋'
+  },
+  {
+    url: 'https://cdn.poehali.dev/files/053539d8-74a9-4768-a6f3-5358f5af50f2.jpg',
+    caption: 'Красавчик на прогулке 🐾'
+  },
+  {
+    url: 'https://cdn.poehali.dev/files/c3e30131-142a-4c37-a6b3-b2931e8da121.jpg',
+    caption: 'Обожаю вяленое мясо! ❤️'
+  },
+  {
+    url: 'https://cdn.poehali.dev/files/8ba0a572-9fac-4a53-879d-cdd6ff5e0cb9.jpg',
+    caption: 'С любимой хозяйкой 💕'
+  },
+  {
+    url: 'https://cdn.poehali.dev/files/6442bbd8-4a0a-4616-889a-81d7674a2a71.jpg',
+    caption: 'Вместе лучше! 🥰'
+  },
+  {
+    url: 'https://cdn.poehali.dev/files/39381b5f-d481-4a00-98ef-6036a46e477d.jpg',
+    caption: 'Лакомства - это счастье 🎉'
+  },
+  {
+    url: 'https://cdn.poehali.dev/files/053539d8-74a9-4768-a6f3-5358f5af50f2.jpg',
+    caption: 'Позирую на камеру 📸'
+  },
+  {
+    url: 'https://cdn.poehali.dev/files/c3e30131-142a-4c37-a6b3-b2931e8da121.jpg',
+    caption: 'Вкусняшки каждый день! ⭐'
+  }
 ];
 
 const products: Product[] = [
@@ -512,10 +536,13 @@ export default function Index() {
                   onClick={() => openImage(index)}
                 >
                   <img 
-                    src={img} 
-                    alt={`Шпиц ${index + 1}`}
+                    src={img.url} 
+                    alt={img.caption}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-sm font-medium">{img.caption}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -649,12 +676,17 @@ export default function Index() {
             {selectedImageIndex + 1} / {galleryImages.length}
           </div>
           
-          <img 
-            src={galleryImages[selectedImageIndex]} 
-            alt="Полноэкранное фото"
-            className="max-w-full max-h-[80vh] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="flex flex-col items-center gap-4">
+            <img 
+              src={galleryImages[selectedImageIndex].url} 
+              alt={galleryImages[selectedImageIndex].caption}
+              className="max-w-full max-h-[70vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="text-white text-lg font-medium bg-black/50 px-6 py-3 rounded-full">
+              {galleryImages[selectedImageIndex].caption}
+            </p>
+          </div>
         </div>
       )}
     </div>
