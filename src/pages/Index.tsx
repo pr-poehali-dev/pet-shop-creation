@@ -22,14 +22,14 @@ interface CartItem extends Product {
 }
 
 const galleryImages = [
-  'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=1200&h=1200&fit=crop',
-  'https://images.unsplash.com/photo-1534361960057-19889db9621e?w=1200&h=1200&fit=crop',
-  'https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=1200&h=1200&fit=crop',
-  'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1200&h=1200&fit=crop',
-  'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=1200&h=1200&fit=crop',
-  'https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=1200&h=1200&fit=crop',
-  'https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?w=1200&h=1200&fit=crop',
-  'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&h=1200&fit=crop'
+  'https://images.unsplash.com/photo-1585664811087-47f65abbad64',
+  'https://images.unsplash.com/photo-1534361960057-19889db9621e',
+  'https://images.unsplash.com/photo-1623387641168-d9803ddd3f35',
+  'https://images.unsplash.com/photo-1583337130417-3346a1be7dee',
+  'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993',
+  'https://images.unsplash.com/photo-1605568427561-40dd23c2acea',
+  'https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a',
+  'https://images.unsplash.com/photo-1548199973-03cce0bbc87b'
 ];
 
 const products: Product[] = [
@@ -321,7 +321,7 @@ export default function Index() {
               </div>
               <div className="relative animate-scale-in">
                 <img 
-                  src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=600&h=600&fit=crop" 
+                  src="https://images.unsplash.com/photo-1585664811087-47f65abbad64?auto=format&fit=crop&w=600&q=80" 
                   alt="Рыжий шпиц"
                   className="w-full h-auto rounded-3xl shadow-2xl object-cover"
                 />
@@ -364,7 +364,7 @@ export default function Index() {
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <img 
-                src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=500&h=500&fit=crop" 
+                src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=500&q=80" 
                 alt="Счастливый шпиц"
                 className="w-full h-auto rounded-3xl shadow-xl object-cover"
               />
@@ -449,7 +449,7 @@ export default function Index() {
               <Card className="overflow-hidden">
                 <CardHeader>
                   <img 
-                    src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=400&h=250&fit=crop" 
+                    src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?auto=format&fit=crop&w=400&h=250&q=80" 
                     alt="Шпиц ждет доставку"
                     className="w-full h-32 object-cover mb-4 rounded-lg"
                   />
@@ -465,7 +465,7 @@ export default function Index() {
               <Card className="overflow-hidden">
                 <CardHeader>
                   <img 
-                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=250&fit=crop" 
+                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=400&h=250&q=80" 
                     alt="Милый шпиц"
                     className="w-full h-32 object-cover mb-4 rounded-lg"
                   />
@@ -481,7 +481,7 @@ export default function Index() {
               <Card className="overflow-hidden">
                 <CardHeader>
                   <img 
-                    src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=400&h=250&fit=crop" 
+                    src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&w=400&h=250&q=80" 
                     alt="Радостный шпиц"
                     className="w-full h-32 object-cover mb-4 rounded-lg"
                   />
@@ -512,7 +512,7 @@ export default function Index() {
                   onClick={() => openImage(index)}
                 >
                   <img 
-                    src={img.replace('w=1200&h=1200', 'w=400&h=400')} 
+                    src={`${img}?auto=format&fit=crop&w=400&h=400&q=80`} 
                     alt={`Шпиц ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
@@ -650,7 +650,7 @@ export default function Index() {
           </div>
           
           <img 
-            src={galleryImages[selectedImageIndex]} 
+            src={`${galleryImages[selectedImageIndex]}?auto=format&fit=crop&w=1200&q=80`} 
             alt="Полноэкранное фото"
             className="max-w-full max-h-full object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
