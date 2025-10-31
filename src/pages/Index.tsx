@@ -392,12 +392,12 @@ export default function Index() {
                     alt="Шпиц ждет доставку"
                     className="w-full h-32 object-cover mb-4 rounded-lg"
                   />
-                  <CardTitle className="text-center">Курьером</CardTitle>
+                  <CardTitle className="text-center">СДЭК</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center text-muted-foreground">Доставка по Москве в течение 1-2 дней. При заказе от 2000 ₽ — бесплатно!</p>
+                  <p className="text-center text-muted-foreground">Доставка в пункты выдачи и курьером по всей России. Срок 2-7 дней.</p>
                   <div className="mt-4 text-center">
-                    <div className="text-2xl font-bold text-primary">от 250 ₽</div>
+                    <div className="text-2xl font-bold text-primary">от 200 ₽</div>
                   </div>
                 </CardContent>
               </Card>
