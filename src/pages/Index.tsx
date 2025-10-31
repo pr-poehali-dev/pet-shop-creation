@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
 import Icon from '@/components/ui/icon';
 import { toast } from "sonner";
 
@@ -86,6 +87,8 @@ export default function Index() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [city, setCity] = useState<string>('');
+  const [deliveryCost, setDeliveryCost] = useState<number | null>(null);
 
   const openImage = (index: number) => {
     setSelectedImageIndex(index);
@@ -105,6 +108,36 @@ export default function Index() {
     if (selectedImageIndex !== null) {
       setSelectedImageIndex((selectedImageIndex - 1 + galleryImages.length) % galleryImages.length);
     }
+  };
+
+  const calculateDelivery = () => {
+    if (!city.trim()) {
+      toast.error('Введите название города');
+      return;
+    }
+    const cities: Record<string, number> = {
+      'москва': 200,
+      'санкт-петербург': 250,
+      'петербург': 250,
+      'спб': 250,
+      'екатеринбург': 300,
+      'новосибирск': 350,
+      'казань': 280,
+      'нижний новгород': 270,
+      'челябинск': 320,
+      'самара': 290,
+      'омск': 360,
+      'ростов-на-дону': 310,
+      'уфа': 330,
+      'красноярск': 400,
+      'воронеж': 280,
+      'пермь': 340,
+      'волгоград': 300
+    };
+    const cityLower = city.toLowerCase().trim();
+    const cost = cities[cityLower] || 350;
+    setDeliveryCost(cost);
+    toast.success(`Стоимость доставки в ${city}: ${cost} ₽`);
   };
 
   const addToCart = (product: Product) => {
@@ -383,6 +416,34 @@ export default function Index() {
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">Доставка</h2>
               <p className="text-xl text-muted-foreground">Быстро и удобно до вашей двери</p>
+            </div>
+            <div className="max-w-xl mx-auto mb-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-center">Рассчитать доставку</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex gap-3">
+                    <Input 
+                      placeholder="Введите ваш город"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && calculateDelivery()}
+                      className="flex-1"
+                    />
+                    <Button onClick={calculateDelivery}>
+                      <Icon name="Calculator" size={16} className="mr-2" />
+                      Рассчитать
+                    </Button>
+                  </div>
+                  {deliveryCost !== null && (
+                    <div className="mt-4 p-4 bg-primary/10 rounded-lg text-center">
+                      <p className="text-sm text-muted-foreground mb-1">Стоимость доставки</p>
+                      <p className="text-3xl font-bold text-primary">{deliveryCost} ₽</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             </div>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <Card className="overflow-hidden">
